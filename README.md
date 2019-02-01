@@ -25,15 +25,15 @@ In our college library there is huge shortage of books. There are only 50% stude
 •	Database
 
 ### Tools Used
-    -	Frontend:  
-      - Android studio (Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains' IntelliJ IDEA software and designed specifically for Android development.)
+#### Frontend:  
+Android studio (Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains' IntelliJ IDEA software and designed specifically for Android development.)
 
-    - Backend:
-      - Firebase (Firebase is a mobile and web application development platform developed by Firebase, Inc. in 2011, then acquired by Google in 2014.)
-        - Firebase Auth
-        - Firebase Notification
-        - Realtime database
-        - Firebase storage
+#### Backend:
+Firebase (Firebase is a mobile and web application development platform developed by Firebase, Inc. in 2011, then acquired by Google in 2014.)
+- Firebase Auth
+- Firebase Notification
+- Realtime database
+- Firebase storage
 
 
 ## Expected Outcomes
