@@ -58,8 +58,8 @@ An interface(application) for user through which he/she can buy or sell books an
 
 ## Mini Project Associates:
 
-Name                Reg.no        Section	
-Archana             1SI16CS020	  A	
-Akshat Agarwal    	1SI16CS010  	A	
-Chinmayi P          1SI16CS031  	A	
+### Name                Reg.no        Section	
+- Archana             1SI16CS020	  A	
+- Akshat Agarwal    	1SI16CS010  	A	
+- Chinmayi P          1SI16CS031  	A	
 
