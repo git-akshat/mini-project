@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FirebaseAuth</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="don_t_have_account_sign_up">Don\'t have account? Sign Up</string>
+    <string name="login">Login</string>
+    <string name="my_profile">Profile</string>
+    <string name="sell">Sell</string>
+    <string name="logout">Logout</string>
+    <string name="about">About</string>
+    <string name="share">share</string>
+    <string name="juggler">Welcome to Juggler</string>"
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close navigation Drawer</string>
+    <string name="coming_soon">Coming Soon..</string>
+    <string name="home">Home</string>
+    <string name="product_name">Product name</string>
+</resources>
