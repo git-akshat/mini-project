@@ -21,8 +21,8 @@ In our college library there is huge shortage of books. There are only 50% stude
 ## Tools and Technology
 
 ### Technology Used
-•	Android
-•	Database
+- Android
+- Database
 
 ### Tools Used
 #### Frontend:  
