@@ -54,10 +54,6 @@ An interface(application) for user through which he/she can buy or sell books an
 •	He can upload image of product, the price of product, category of product and a short description about the product.
 •	After a customer buys his product he will get an email notification.
 •	He can then chat with the customer in the application.
-
-
-## Mini Project Associates:
-@ Archana             1SI16CS020
-@ Akshat Agarwal    	1SI16CS010
-@ Chinmayi P          1SI16CS031
+           
+[Akshat Agarwal] https://github.com/git-akshat   
 
