@@ -201,7 +201,7 @@ public class ProfileActivity extends AppCompatActivity {
     private void showImageChooser(){
         Intent intent = new Intent();
         intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setAction(Intent.ACTION_CAMERA_BUTTON);
         startActivityForResult(Intent.createChooser(intent,"Select profile image"),CHOOSE_IMAGE);
     }
 }

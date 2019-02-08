@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -59,8 +60,41 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        if(password.length()<6){
-            editTextPassword.setError("Password too short(min 6 character)");
+        if(password.length()<6 || password.length()>15){
+            editTextPassword.setError("Password should be of 6-15 characters");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        String upperCaseChars = "(.*[A-Z].*)";
+        if (!password.matches(upperCaseChars ))
+        {
+            //editTextPassword.setError("Password should contain atleast one upper case alphabet");
+            editTextPassword.setError("Password should contain at least one number, one lowercase letter, one uppercase letter, and one special character.");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        String lowerCaseChars = "(.*[a-z].*)";
+        if (!password.matches(lowerCaseChars ))
+        {
+            editTextPassword.setError("Password should contain at least one number, one lowercase letter, one uppercase letter, and one special character.");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        String numbers = "(.*[0-9].*)";
+        if (!password.matches(numbers))
+        {
+            editTextPassword.setError("Password should contain at least one number, one lowercase letter, one uppercase letter, and one special character.");
+            editTextPassword.requestFocus();
+            return;
+        }
+
+        String specialChars = "(.*[,~,!,@,#,$,%,^,&,*,(,),-,_,=,+,[,{,],},|,;,:,<,>,/,?].*$)";
+        if (!password.matches(specialChars ))
+        {
+            editTextPassword.setError("Password should contain at least one number, one lowercase letter, one uppercase letter, and one special character.");
             editTextPassword.requestFocus();
             return;
         }
@@ -71,11 +105,18 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
-                if(task.isSuccessful()){
-                    finish();
-                    Intent intent=new Intent(LoginActivity.this,DrawerActivity.class);
-                    intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                if(task.isSuccessful()) {
+                    if (mAuth.getCurrentUser().isEmailVerified()) {
+                        finish();
+                        Intent intent = new Intent(LoginActivity.this, DrawerActivity.class);
+                        intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                    else{
+                        editTextPassword.setText("");
+                        Toast.makeText(LoginActivity.this,"Verify your email to login",Toast.LENGTH_LONG).show();
+                        FirebaseAuth.getInstance().signOut();
+                    }
                 }
                 else{
                     Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_SHORT).show();
