@@ -55,5 +55,13 @@ An interface(application) for user through which he/she can buy or sell books an
 •	After a customer buys his product he will get an email notification.
 •	He can then chat with the customer in the application.
            
-## [`Akshat Agarwal`](https://github.com/git-akshat)
+## Collaborators
+[`Akshat Agarwal`](https://github.com/git-akshat)
+
+
+[`Aishwarya Agarwal`](https://github.com/aishwarya-cclub)
+
+[`Archana Minajagi`](https://github.com/1si16cs020)
+
+[`Chinmayi P`](https://github.com/chinmayi031)
 
