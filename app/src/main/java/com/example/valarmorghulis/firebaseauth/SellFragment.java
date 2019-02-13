@@ -1,5 +1,6 @@
 package com.example.valarmorghulis.firebaseauth;
 
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -35,6 +36,7 @@ import static android.app.Activity.RESULT_OK;
 public class SellFragment extends Fragment {
 
     private static final int PICK_IMAGE_REQUEST = 1;
+    private static final int PICK_CAMERA_REQUEST = 0;
 
     private Button mButtonChooseImage;
     private Button mButtonUpload;
@@ -45,6 +47,7 @@ public class SellFragment extends Fragment {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
+    Uri uri;
 
 
     @Nullable
@@ -85,6 +88,7 @@ public class SellFragment extends Fragment {
     private void openFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
+
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
@@ -96,8 +100,30 @@ public class SellFragment extends Fragment {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
+            //cropImage();
 
             Picasso.with(getActivity()).load(mImageUri).into(mImageView);
+        }
+    }
+
+    private void cropImage() {
+        try {
+            Intent cropIntent;
+
+            cropIntent = new Intent("com.android.camera.action.CROP");
+            cropIntent.setDataAndType(mImageUri, "image/*");
+
+            cropIntent.putExtra("crop", " true");
+            cropIntent.putExtra("outputx", 180);
+            cropIntent.putExtra("outputY", 180);
+            cropIntent.putExtra("aspectx", 3);
+            cropIntent.putExtra("aspecty", 4);
+            cropIntent.putExtra("scaleUpIfNeeded", true);
+            cropIntent.putExtra("return-data ", true);
+
+            startActivityForResult(cropIntent, 1);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -111,63 +137,67 @@ public class SellFragment extends Fragment {
         if (mEditTextFileName.getText().toString().trim().isEmpty()) {
             mEditTextFileName.setError("Name required");
             mEditTextFileName.requestFocus();
-        } else {
-            if (mImageUri != null) {
-                final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
-                        + "." + getFileExtension(mImageUri));
-
-                mUploadTask = fileReference.putFile(mImageUri)
-                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        mProgressBar.setProgress(0);
-                                    }
-                                }, 500);
-
-
-                                Toast.makeText(getActivity(), "Upload successful", Toast.LENGTH_LONG).show();
-                                taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                    @Override
-                                    public void onSuccess(Uri uri) {
-                                        Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                                uri.toString());
-                                        String uploadId = mDatabaseRef.push().getKey();
-                                        mDatabaseRef.child(uploadId).setValue(upload);
-                                        mEditTextFileName.setText("");
-                                        mImageView.setImageBitmap(null);
-                                    }
-                                })
-                                        .addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Toast.makeText(getActivity(), e.getMessage() ,Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-
-
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                                double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                                mProgressBar.setProgress((int) progress);
-                            }
-                        });
-            } else {
-                Toast.makeText(getActivity(), "No file selected", Toast.LENGTH_SHORT).show();
-            }
+            return;
         }
+        if (mImageUri != null) {
+            final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
+                    + "." + getFileExtension(mImageUri));
+
+            mUploadTask = fileReference.putFile(mImageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mProgressBar.setProgress(0);
+                                }
+                            }, 500);
+
+                            mImageUri = null;
+                            mEditTextFileName.setText("");
+                            mImageView.setImageBitmap(null);
+                            Toast.makeText(getActivity(), "Upload successful", Toast.LENGTH_LONG).show();
+
+                            taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
+                                            uri.toString());
+                                    String uploadId = mDatabaseRef.push().getKey();
+                                    mDatabaseRef.child(uploadId).setValue(upload);
+
+
+                                }
+                            })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                            mProgressBar.setProgress((int) progress);
+                        }
+                    });
+        } else {
+            Toast.makeText(getActivity(), "No file selected", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 

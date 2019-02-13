@@ -10,8 +10,6 @@
         android:id="@+id/progress_circle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:startColor="@color/blackish_blue"
-        android:endColor="@color/blackish_blue"
         android:layout_centerInParent="true" />
 
     <android.support.v7.widget.RecyclerView
