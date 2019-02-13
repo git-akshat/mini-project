@@ -51,6 +51,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
+                                                <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -62,7 +63,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="69" />
+                                                <entry key="scalingPercent" value="77" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -75,6 +76,18 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                      <entry key="foregroundTextAsset">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="text" value="" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -85,10 +98,10 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="fff9ff" />
-                                      <entry key="foregroundImage" value="C:\Users\Valar Morghulis\AndroidStudioProjects\FirebaseAuth\app\src\main\res\drawable\icon_camera.png" />
+                                      <entry key="backgroundColor" value="fdfdfd" />
+                                      <entry key="foregroundImage" value="C:\Users\Valar Morghulis\Desktop\1.jpg" />
                                       <entry key="legacyIconShape" value="CIRCLE" />
-                                      <entry key="outputName" value="ic_camera" />
+                                      <entry key="outputName" value="ic_loading" />
                                       <entry key="webIconShape" value="CIRCLE" />
                                     </map>
                                   </option>
@@ -162,7 +175,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_camera_alt_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/device/ic_wallpaper_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -172,7 +185,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_camera" />
+                            <entry key="outputName" value="ic_image" />
                             <entry key="sourceFile" value="C:\Users\Valar Morghulis" />
                           </map>
                         </option>

@@ -35,15 +35,14 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new AboutFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.nav_home:
-                startActivity( new Intent(this,ImagesActivity.class));
-                //getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
                 break;
 
             case R.id.nav_my_profile:
@@ -51,7 +50,7 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                 break;
 
             case R.id.nav_sell:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new HomeFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new SellFragment()).commit();
                 break;
 
             case R.id.nav_logout:
@@ -61,10 +60,11 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                 break;
 
             case R.id.nav_about:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new SellFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new AboutFragment()).commit();
                 break;
 
             case R.id.nav_share:
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new AboutFragment()).commit();
                 break;
 
         }
