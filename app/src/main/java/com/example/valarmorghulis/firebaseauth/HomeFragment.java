@@ -139,10 +139,25 @@ public class HomeFragment extends Fragment {
 
 
                                 Toast.makeText(getActivity(), "Upload successful", Toast.LENGTH_LONG).show();
-                                Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                        taskSnapshot.getMetadata().getReference().getDownloadUrl().toString());
-                                String uploadId = mDatabaseRef.push().getKey();
-                                mDatabaseRef.child(uploadId).setValue(upload);
+                                taskSnapshot.getMetadata().getReference().getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
+                                                uri.toString());
+                                        String uploadId = mDatabaseRef.push().getKey();
+                                        mDatabaseRef.child(uploadId).setValue(upload);
+                                        mEditTextFileName.setText("");
+                                        mImageView.setImageBitmap(null);
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(getActivity(), e.getMessage() ,Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+
+
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
