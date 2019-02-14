@@ -2,6 +2,7 @@ package com.example.valarmorghulis.firebaseauth;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -22,7 +23,8 @@ import java.util.regex.Pattern;
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener{
 
     ProgressBar progressBar;
-    EditText editTextEmail,editTextPassword;
+    EditText editTextEmail;
+    TextInputEditText editTextPassword;
     private FirebaseAuth mAuth;
 
 
@@ -32,7 +34,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_sign_up);
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword= (EditText) findViewById((R.id.editTextPassword));
+        editTextPassword= (TextInputEditText) findViewById((R.id.editTextPassword));
         progressBar = findViewById(R.id.progressbar);
 
         mAuth = FirebaseAuth.getInstance();

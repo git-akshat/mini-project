@@ -2,6 +2,8 @@ package com.example.valarmorghulis.firebaseauth;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,7 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
-    EditText editTextEmail,editTextPassword;
+    EditText editTextEmail;
+    TextInputEditText editTextPassword;
     ProgressBar progressBar;
 
     @Override
@@ -29,7 +32,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextPassword = (TextInputEditText) findViewById(R.id.editTextPassword);
         progressBar=findViewById(R.id.progressbar);
 
         mAuth=FirebaseAuth.getInstance();

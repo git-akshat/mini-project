@@ -46,15 +46,23 @@
                 android:paddingBottom="15dp"
                 android:textColorHint="@color/colorAccent" />
 
-            <EditText
-                android:id="@+id/editTextPassword"
+            <android.support.design.widget.TextInputLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:hint="password"
-                android:inputType="textPassword"
-                android:paddingBottom="15dp"
-                android:textColorHint="@color/colorAccent" />
+                android:textColorHint="@color/colorAccent"
+                app:passwordToggleEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:paddingBottom="15dp" />
+
+            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/buttonSignUp"

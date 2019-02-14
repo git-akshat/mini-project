@@ -42,22 +42,30 @@
                 android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints=""
                 android:fontFamily="sans-serif"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:paddingBottom="15dp"
-                android:textColorHint="@color/colorAccent"
-                android:autofillHints="" />
+                android:textColorHint="@color/colorAccent" />
 
-            <EditText
-                android:id="@+id/editTextPassword"
+            <android.support.design.widget.TextInputLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:paddingBottom="15dp"
-                android:textColorHint="@color/colorAccent" />
+                android:textColorHint="@color/colorAccent"
+                app:passwordToggleEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:paddingBottom="15dp" />
+
+            </android.support.design.widget.TextInputLayout>
 
             <Button
                 android:id="@+id/buttonLogin"
@@ -66,10 +74,10 @@
                 android:layout_gravity="center"
                 android:layout_margin="7dp"
                 android:background="@drawable/rounded_button_transparent"
+                android:elevation="4dp"
                 android:text="@string/login"
                 android:textAllCaps="false"
-                android:textColor="@color/colorAccent"
-                android:elevation="4dp"/>
+                android:textColor="@color/colorAccent" />
 
             <TextView
                 android:id="@+id/textViewSignup"
@@ -92,9 +100,6 @@
             android:layout_centerVertical="true"
             android:visibility="gone" />
     </RelativeLayout>
-
-
-
 
 
 </LinearLayout>
