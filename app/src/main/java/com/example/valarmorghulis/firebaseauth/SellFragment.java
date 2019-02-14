@@ -156,7 +156,6 @@ public class SellFragment extends Fragment {
                             }, 500);
 
                             mImageUri = null;
-                            mEditTextFileName.setText("");
                             mImageView.setImageBitmap(null);
                             Toast.makeText(getActivity(), "Upload successful", Toast.LENGTH_LONG).show();
 
@@ -167,7 +166,7 @@ public class SellFragment extends Fragment {
                                             uri.toString());
                                     String uploadId = mDatabaseRef.push().getKey();
                                     mDatabaseRef.child(uploadId).setValue(upload);
-
+                                    mEditTextFileName.setText("");
 
                                 }
                             })
