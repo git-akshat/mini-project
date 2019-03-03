@@ -21,19 +21,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="19dp"
         app:srcCompat="@android:drawable/ic_media_play" />
 
     <TextView
-        android:id="@+id/se1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="69dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/product_name"
-        android:textSize="25dp"
-        android:textStyle="bold" />
+    android:id="@+id/se1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="69dp"
+    android:layout_marginTop="20dp"
+    android:text="@string/product_name"
+    android:textSize="25dp"
+    android:textStyle="bold" />
 
     <EditText
         android:id="@+id/edit_text_file_name"

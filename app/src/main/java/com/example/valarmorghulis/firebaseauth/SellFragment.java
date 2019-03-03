@@ -41,6 +41,7 @@ public class SellFragment extends Fragment {
     private Button mButtonChooseImage;
     private Button mButtonUpload;
     private EditText mEditTextFileName;
+    private EditText mEditTextFilePrice;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
     private Uri mImageUri;
@@ -58,6 +59,7 @@ public class SellFragment extends Fragment {
         mButtonChooseImage = v.findViewById(R.id.button_choose_image);
         mButtonUpload = v.findViewById(R.id.button_upload);
         mEditTextFileName = v.findViewById(R.id.edit_text_file_name);
+        mEditTextFilePrice = v.findViewById(R.id.edit_text_file_price);
         mImageView = v.findViewById(R.id.image_view);
         mProgressBar = v.findViewById(R.id.progress_bar);
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
@@ -139,6 +141,13 @@ public class SellFragment extends Fragment {
             mEditTextFileName.requestFocus();
             return;
         }
+
+        if (mEditTextFilePrice.getText().toString().trim().isEmpty()) {
+            mEditTextFilePrice.setError("Price required");
+            mEditTextFilePrice.requestFocus();
+            return;
+        }
+
         if (mImageUri != null) {
             final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));
@@ -163,10 +172,11 @@ public class SellFragment extends Fragment {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                            uri.toString());
+                                            uri.toString(), mEditTextFilePrice.getText().toString().trim());
                                     String uploadId = mDatabaseRef.push().getKey();
                                     mDatabaseRef.child(uploadId).setValue(upload);
                                     mEditTextFileName.setText("");
+                                    mEditTextFilePrice.setText("");
 
                                 }
                             })

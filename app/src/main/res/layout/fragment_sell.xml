@@ -1,31 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/button_choose_image"
+    <ImageButton
+        android:id="@+id/imageButton5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose file" />
+        app:srcCompat="@android:drawable/ic_media_play" />
+
+    <TextView
+        android:id="@+id/Product_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/imageButton5"
+        android:text="@string/product_name"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/edit_text_file_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/button_choose_image"
+        android:layout_below="@+id/Product_tag"
+        android:layout_marginStart="65dp"
         android:hint="Enter Product name" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_file_name"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <TextView
+        android:id="@+id/Image_tag"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_file_name"
+        android:layout_marginLeft="65dp"
+        android:text="select an image "
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_choose_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/Image_tag"
+
+
+        android:text="choose Image" />
 
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/progress_bar"
-        android:layout_below="@id/edit_text_file_name"
+        android:layout_height="300dp"
+        android:layout_below="@+id/button_choose_image"
         android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/Price_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_view"
+        android:layout_marginLeft="69dp"
+        android:layout_marginTop="5dp"
+        android:text="product price "
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/edit_text_file_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_below="@+id/Price_tag"
+        android:hint="Enter Price" />
+
+
 
     <ProgressBar
         android:id="@+id/progress_bar"
