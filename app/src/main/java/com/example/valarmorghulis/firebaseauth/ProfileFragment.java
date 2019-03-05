@@ -36,7 +36,7 @@ import static android.support.v7.app.AppCompatActivity.RESULT_OK;
 public class ProfileFragment extends Fragment {
 
     private static final int CHOOSE_IMAGE =101 ;
-    TextView textView, textViewmsg;
+    TextView textView , textViewEmail;
     ImageView imageView;
     EditText editText;
     Uri uriProfileImage;
@@ -54,7 +54,9 @@ public class ProfileFragment extends Fragment {
         imageView= (ImageView) v.findViewById(R.id.imageView);
         progressBar = v.findViewById(R.id.progressbar);
         textView = v.findViewById(R.id.textViewVerified);
-        textViewmsg = v.findViewById(R.id.msg);
+        textViewEmail = v.findViewById(R.id.text_view_email);
+
+        textViewEmail.setText(mAuth.getCurrentUser().getEmail());
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,11 +101,10 @@ public class ProfileFragment extends Fragment {
             if (user.getDisplayName() != null) {
                 String displayName = user.getDisplayName();
                 editText.setText(displayName);
-                textViewmsg.setVisibility(View.GONE);
             }
 
             if(user.isEmailVerified()){
-                textView.setText("Email Verified");
+                textView.setText("Verified");
             }
             else{
                 textView.setText("Email Not Verified(click here to verify)");

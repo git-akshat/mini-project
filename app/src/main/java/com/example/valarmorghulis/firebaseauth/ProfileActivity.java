@@ -32,7 +32,7 @@ import java.io.IOException;
 public class ProfileActivity extends AppCompatActivity {
 
     private static final int CHOOSE_IMAGE =101 ;
-    TextView textView, textViewmsg;
+    TextView textView , textViewEmail;
     ImageView imageView;
     EditText editText;
     Uri uriProfileImage;
@@ -50,7 +50,9 @@ public class ProfileActivity extends AppCompatActivity {
         imageView= (ImageView) findViewById(R.id.imageView);
         progressBar = findViewById(R.id.progressbar);
         textView = findViewById(R.id.textViewVerified);
-        textViewmsg = findViewById(R.id.msg);
+        textViewEmail = findViewById(R.id.text_view_email);
+
+        textViewEmail.setText(mAuth.getCurrentUser().getEmail());
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,13 +96,12 @@ public class ProfileActivity extends AppCompatActivity {
             if (user.getDisplayName() != null) {
                 String displayName = user.getDisplayName();
                 editText.setText(displayName);
-                textViewmsg.setVisibility(View.GONE);
             }
 
             if(user.isEmailVerified()){
                 textView.setText("Email Verified");
             }
-            else{
+            /*else{
                 textView.setText("Email Not Verified(click here to verify)");
 
                 textView.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +116,7 @@ public class ProfileActivity extends AppCompatActivity {
                         });
                     }
                 });
-            }
+            }*/
         }
     }
 

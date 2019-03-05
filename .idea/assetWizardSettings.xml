@@ -185,8 +185,10 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_image" />
-                            <entry key="sourceFile" value="C:\Users\Valar Morghulis" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="opacityPercent" value="76" />
+                            <entry key="outputName" value="ic_rupee" />
+                            <entry key="sourceFile" value="C:\Users\Valar Morghulis\Downloads\rupee.svg" />
                           </map>
                         </option>
                       </PersistentState>
