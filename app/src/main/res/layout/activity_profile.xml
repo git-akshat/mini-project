@@ -62,27 +62,30 @@
 
     <TextView
         android:id="@+id/text_view_email"
-        android:layout_width="270dp"
+        android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/name_tag"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif"
-        android:textSize="17dp"
+        android:textSize="15dp"
         android:layout_toEndOf="@+id/email_tag"
         android:text="email_id" />
 
-        <TextView
-            android:id="@+id/textViewVerified"
-            android:layout_below="@+id/editTextDisplayName"
-            android:layout_marginTop="25dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="2dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:shadowColor="#3322"
-            android:text="verified"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Widget.PopupMenu.Small" />
+    <TextView
+        android:id="@+id/textViewVerified"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextDisplayName"
+        android:layout_alignBottom="@+id/text_view_email"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="-3dp"
+        android:shadowColor="#3322"
+        android:text="verified"
+        android:fontFamily="sans-serif"
+        android:textSize="13dp" />
 
     <Button
         android:id="@+id/buttonSave"

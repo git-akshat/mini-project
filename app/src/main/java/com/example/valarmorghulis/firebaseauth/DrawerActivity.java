@@ -1,6 +1,7 @@
 package com.example.valarmorghulis.firebaseauth;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,11 +18,21 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class DrawerActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
+//    private static int SPLASH_TIME_OUT = 4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawer);
+
+        /*new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent SplashIntent = new Intent(DrawerActivity.this,Activity_splash_screen.class);
+                startActivity(SplashIntent);
+                finish();
+            }
+        },SPLASH_TIME_OUT);*/
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -38,7 +38,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         holder.textViewPrice.setText("₹ " + uploadCurrent.getPrice());
         Picasso.with(mContext)
                 .load(uploadCurrent.getImageUrl())
-                .placeholder(R.mipmap.ic_loading_round)
+                .placeholder(R.mipmap.ic_loading)
                 .fit()
                 .centerInside()
                 .into(holder.imageView);

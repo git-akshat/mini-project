@@ -98,11 +98,11 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="fdfdfd" />
+                                      <entry key="backgroundColor" value="ffffff" />
                                       <entry key="foregroundImage" value="C:\Users\Valar Morghulis\Desktop\1.jpg" />
-                                      <entry key="legacyIconShape" value="CIRCLE" />
+                                      <entry key="legacyIconShape" value="NONE" />
                                       <entry key="outputName" value="ic_loading" />
-                                      <entry key="webIconShape" value="CIRCLE" />
+                                      <entry key="webIconShape" value="NONE" />
                                     </map>
                                   </option>
                                 </PersistentState>

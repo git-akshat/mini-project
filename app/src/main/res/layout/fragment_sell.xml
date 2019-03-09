@@ -1,120 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:fillViewport="true"
+    tools:context=".SellFragment">
 
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_media_play" />
-
-    <TextView
-        android:id="@+id/Product_tag"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_toEndOf="@+id/imageButton5"
-        android:text="@string/product_name"
-        android:textSize="25dp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <EditText
-        android:id="@+id/edit_text_file_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Product_tag"
-        android:layout_marginStart="65dp"
-        android:maxLines="1"
-        android:maxLength="55"
-        android:singleLine="true"
-        android:hint="Enter Product name" />
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/ic_media_play" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_text_file_name"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        <TextView
+            android:id="@+id/Product_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/imageButton5"
+            android:text="@string/product_name"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/Image_tag"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edit_text_file_name"
-        android:layout_marginLeft="65dp"
-        android:layout_marginTop="5dp"
-        android:text="select an image "
-        android:textSize="25dp"
-        android:textStyle="bold" />
+        <EditText
+            android:id="@+id/edit_text_file_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Product_tag"
+            android:layout_marginStart="65dp"
+            android:hint="Enter Product name"
+            android:maxLength="55"
+            android:maxLines="1"
+            android:singleLine="true" />
 
-    <Button
-        android:id="@+id/button_choose_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/Image_tag"
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_text_file_name"
+            app:srcCompat="@android:drawable/ic_menu_camera" />
 
+        <TextView
+            android:id="@+id/Image_tag"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edit_text_file_name"
+            android:layout_marginLeft="65dp"
+            android:layout_marginTop="5dp"
+            android:text="select an image "
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
-        android:text="choose Image" />
-
-    <ImageView
-        android:id="@+id/image_view"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_below="@+id/button_choose_image"
-        android:layout_marginTop="16dp" />
-
-    <ImageButton
-        android:id="@+id/rupee_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/image_view"
-        app:srcCompat="@drawable/ic_rupee" />
-
-    <TextView
-        android:id="@+id/Price_tag"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/image_view"
-        android:layout_toEndOf="@id/rupee_button"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="2dp"
-        android:text="product price "
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/edit_text_file_price"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_below="@+id/Price_tag"
-        android:inputType="number"
-        android:maxLength="4"
-        android:maxLines="1"
-        android:hint="Enter Price" />
+        <Button
+            android:id="@+id/button_choose_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Image_tag"
+            android:layout_marginTop="20dp"
 
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/button_upload"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-4dp" />
+            android:text="choose Image" />
 
-    <Button
-        android:id="@+id/button_upload"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Upload" />
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@+id/button_choose_image"
+            android:layout_marginTop="16dp" />
+
+        <ImageButton
+            android:id="@+id/rupee_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image_view"
+            app:srcCompat="@drawable/ic_rupee" />
+
+        <TextView
+            android:id="@+id/Price_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image_view"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="2dp"
+            android:layout_toEndOf="@id/rupee_button"
+            android:text="product price "
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edit_text_file_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Price_tag"
+            android:layout_marginStart="60dp"
+            android:hint="Enter Price"
+            android:inputType="number"
+            android:maxLength="4"
+            android:maxLines="1" />
 
 
-</RelativeLayout>
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/edit_text_file_price"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-4dp" />
+
+        <Button
+            android:id="@+id/button_upload"
+            android:layout_below="@+id/progress_bar"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Upload" />
+
+
+    </RelativeLayout>
+
+</ScrollView>

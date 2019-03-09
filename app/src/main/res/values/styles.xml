@@ -15,4 +15,9 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <!-- Splash Screen theme -->
+    <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+
 </resources>

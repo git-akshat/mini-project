@@ -1,6 +1,7 @@
 package com.example.valarmorghulis.firebaseauth;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
@@ -20,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+
 
     private FirebaseAuth mAuth;
     EditText editTextEmail;
