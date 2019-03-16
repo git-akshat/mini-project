@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@color/colorPrimary">
+
+                <ImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="350dp"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center"
+                    android:background="@mipmap/ic_loading"
+                    android:contentDescription="TODO" />
+
+
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card_view"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Product Name"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/product_name"
+                android:background="?android:attr/listDivider" />
+
+
+            <TextView
+                android:id="@+id/product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-black"
+                android:text="price"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="20dp" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/product_price"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:id="@+id/product_seller_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider2"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-black"
+                android:fontStyle="italic"
+                android:text="Seller Name | "
+
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/product_seller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider2"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toEndOf="@+id/product_seller_tag"
+                android:fontFamily="sans-serif-black"
+                android:fontStyle="italic"
+                android:text="Seller"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/product_date_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/product_seller_tag"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-black"
+                android:fontStyle="italic"
+                android:text="Uploaded On | "
+
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/product_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/product_seller"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toEndOf="@+id/product_seller_tag"
+                android:fontFamily="sans-serif-black"
+                android:fontStyle="italic"
+                android:text="Date"
+                android:textSize="15dp" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/product_date"
+                android:background="?android:attr/listDivider"
+            />
+
+            <TextView
+                android:id="@+id/Description_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/product_date_tag"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-black"
+                android:fontStyle="italic"
+                android:text="Description"
+                android:textSize="20dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Description_tag"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="100dp"
+                android:fontFamily="sans-serif"
+                android:fontStyle="italic"
+                android:hint="Description"
+                android:textSize="15dp"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/offer_button"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:duplicateParentState="true"
+        android:paddingLeft="10dp"
+        android:text="Buy" />
+
+    <Button
+        android:id="@+id/msg_button"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/offer_button"
+        android:duplicateParentState="true"
+        android:paddingStart="5dp"
+        android:paddingRight="10dp"
+        android:text="message" />
+
+</RelativeLayout>

@@ -35,8 +35,8 @@ import static android.support.v7.app.AppCompatActivity.RESULT_OK;
 
 public class ProfileFragment extends Fragment {
 
-    private static final int CHOOSE_IMAGE =101 ;
-    TextView textView , textViewEmail;
+    private static final int CHOOSE_IMAGE = 101;
+    TextView textView, textViewEmail;
     ImageView imageView;
     EditText editText;
     Uri uriProfileImage;
@@ -51,7 +51,7 @@ public class ProfileFragment extends Fragment {
 
         mAuth = FirebaseAuth.getInstance();
         editText = (EditText) v.findViewById(R.id.editTextDisplayName);
-        imageView= (ImageView) v.findViewById(R.id.imageView);
+        imageView = (ImageView) v.findViewById(R.id.imageView);
         progressBar = v.findViewById(R.id.progressbar);
         textView = v.findViewById(R.id.textViewVerified);
         textViewEmail = v.findViewById(R.id.text_view_email);
@@ -72,21 +72,26 @@ public class ProfileFragment extends Fragment {
                 saveUserInformation();
             }
         });
-        return  v;
+        return v;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-
-        if (mAuth.getCurrentUser() == null) {
-            getActivity().finish();
-            startActivity(new Intent(getActivity(), LoginActivity.class));
+        Bundle bundle = getArguments();
+        if (bundle !=null && bundle.getInt("seller")==1) {
+            Toast.makeText(getActivity(), "Complete your profile first", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+            /*if (mAuth.getCurrentUser() == null) {
+                getActivity().finish();
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+            }*/
 
     }
 
-    private void loadUserInformation(){
+    private void loadUserInformation() {
         final FirebaseUser user = mAuth.getCurrentUser();
 
         if (user != null) {
@@ -103,10 +108,9 @@ public class ProfileFragment extends Fragment {
                 editText.setText(displayName);
             }
 
-            if(user.isEmailVerified()){
+            if (user.isEmailVerified()) {
                 textView.setText("Verified");
-            }
-            else{
+            } else {
                 textView.setText("Email Not Verified(click here to verify)");
 
                 textView.setOnClickListener(new View.OnClickListener() {
@@ -116,7 +120,7 @@ public class ProfileFragment extends Fragment {
                         user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
-                                Toast.makeText(getActivity(),"Verification email sent",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(), "Verification email sent", Toast.LENGTH_LONG).show();
                             }
                         });
                     }
@@ -128,13 +132,19 @@ public class ProfileFragment extends Fragment {
 
     private void saveUserInformation() {
         String displayName = editText.getText().toString();
-        if(displayName.isEmpty()) {
+        if (displayName.isEmpty()) {
             editText.setError("Name Required");
             editText.requestFocus();
             return;
         }
+        if(profileimageUrl == null && imageView.getDrawable()==null)
+        {
+            Toast.makeText(getActivity(), "No image selected. Click on camera to select profile image", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         FirebaseUser user = mAuth.getCurrentUser();
+        profileimageUrl = user.getPhotoUrl().toString();
 
         if (user != null && profileimageUrl != null) {
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
@@ -146,22 +156,26 @@ public class ProfileFragment extends Fragment {
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(getActivity(),"Profile updated successfully",Toast.LENGTH_LONG).show();
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getActivity(), "Profile updated successfully", Toast.LENGTH_LONG).show();
+                            }
+                            else {
+                                Toast.makeText(getActivity(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                                return;
                             }
                         }
                     });
 
-        }
-        else{
-            Toast.makeText(getActivity(),"Some error occured",Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(getActivity(), "Some error occured", Toast.LENGTH_LONG).show();
+            return;
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == CHOOSE_IMAGE && resultCode == RESULT_OK && data != null && data.getData()!= null){
+        if (requestCode == CHOOSE_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
             uriProfileImage = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uriProfileImage);
@@ -173,11 +187,11 @@ public class ProfileFragment extends Fragment {
         }
     }
 
-    private void uploadImageToFirebaseStorage(){
+    private void uploadImageToFirebaseStorage() {
         final StorageReference ProfileImageRef;
-        ProfileImageRef = FirebaseStorage.getInstance().getReference(System.currentTimeMillis() + ".jpg");
+        ProfileImageRef = FirebaseStorage.getInstance().getReference(mAuth.getCurrentUser().getEmail() + ".jpg");
 
-        if(uriProfileImage != null) {
+        if (uriProfileImage != null) {
             progressBar.setVisibility(View.VISIBLE);
 
             ProfileImageRef.putFile(uriProfileImage)
@@ -197,18 +211,18 @@ public class ProfileFragment extends Fragment {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             progressBar.setVisibility(View.GONE);
-                            Toast.makeText(getActivity(),e.getMessage(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
                         }
                     });
         }
     }
 
 
-    private void showImageChooser(){
+    private void showImageChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Select profile image"),CHOOSE_IMAGE);
+        startActivityForResult(Intent.createChooser(intent, "Select profile image"), CHOOSE_IMAGE);
     }
 
 }

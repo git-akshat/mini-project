@@ -1,6 +1,12 @@
 package com.example.valarmorghulis.firebaseauth;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -49,7 +55,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         return mUploads.size();
     }
 
-    public class ImageViewHolder extends RecyclerView.ViewHolder  {
+    public class ImageViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewName;
         public TextView textViewPrice;
         public ImageView imageView;
@@ -61,6 +67,33 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             textViewPrice = itemView.findViewById(R.id.text_view_price);
             imageView = itemView.findViewById(R.id.image_view_upload);
 
+            imageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    BuyFragment buyFragment = new BuyFragment();
+                    Bundle bundle = new Bundle();
+                    int position = getAdapterPosition();
+                    Upload current = mUploads.get(position);
+                    String name = current.getName();
+                    bundle.putInt("position", position);
+                    bundle.putString("name", name);
+                    bundle.putString("price",current.getPrice());
+                    bundle.putParcelable("bitmapImage", ((BitmapDrawable)imageView.getDrawable()).getBitmap());
+                    bundle.putString("imageUrl",current.getImageUrl());
+                    bundle.putString("userName",current.getUserName());
+                    bundle.putString("date", current.getDate());
+                    bundle.putString("desc", current.getDesc());
+                    buyFragment.setArguments(bundle);
+
+
+                    ((FragmentActivity) mContext)
+                            .getSupportFragmentManager()
+                            .beginTransaction().replace(R.id.frag_container, buyFragment)
+                            .addToBackStack(null).commit();
+
+
+                }
+            });
             //itemView.setOnClickListener(this);
             //itemView.setOnCreateContextMenuListener(this);
         }
@@ -104,7 +137,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             return false;
         }
     }*/
-}
+    }
     /*public interface OnItemClickListener {
         void onItemClick(int position);
 

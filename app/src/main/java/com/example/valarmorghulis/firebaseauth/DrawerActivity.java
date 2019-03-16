@@ -57,11 +57,11 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                 break;
 
             case R.id.nav_my_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new ProfileFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new ProfileFragment()).addToBackStack(null).commit();
                 break;
 
             case R.id.nav_sell:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new SellFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new SellFragment()).addToBackStack(null).commit();
                 break;
 
             case R.id.nav_logout:
@@ -71,11 +71,11 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                 break;
 
             case R.id.nav_about:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new AboutFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new AboutFragment()).addToBackStack(null).commit();
                 break;
 
             case R.id.nav_share:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new AboutFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new AboutFragment()).addToBackStack(null).commit();
                 break;
 
         }

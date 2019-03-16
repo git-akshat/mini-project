@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.EventLogTags;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -43,11 +45,13 @@ public class SellFragment extends Fragment {
     private EditText mEditTextFileName;
     private EditText mEditTextFilePrice;
     private ImageView mImageView;
+    private TextView mDescription;
     private ProgressBar mProgressBar;
     private Uri mImageUri;
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
+    FirebaseAuth mAuth;
     Uri uri;
 
 
@@ -62,6 +66,7 @@ public class SellFragment extends Fragment {
         mEditTextFilePrice = v.findViewById(R.id.edit_text_file_price);
         mImageView = v.findViewById(R.id.image_view);
         mProgressBar = v.findViewById(R.id.progress_bar);
+        mDescription = v.findViewById(R.id.Description);
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
 
@@ -75,11 +80,14 @@ public class SellFragment extends Fragment {
         mButtonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
                     Toast.makeText(getActivity(), "Upload in progress", Toast.LENGTH_SHORT).show();
                 } else {
                     uploadFile();
                 }
+
+
             }
         });
 
@@ -136,6 +144,18 @@ public class SellFragment extends Fragment {
     }
 
     private void uploadFile() {
+        if (mAuth.getInstance().getCurrentUser().getDisplayName() == null) {
+            ProfileFragment profileFragment = new ProfileFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt("seller", 1);
+            profileFragment.setArguments(bundle);
+            getActivity()
+                    .getSupportFragmentManager()
+                    .beginTransaction().replace(R.id.frag_container, profileFragment)
+                    .commit();
+
+            return;
+        }
         if (mEditTextFileName.getText().toString().trim().isEmpty()) {
             mEditTextFileName.setError("Name required");
             mEditTextFileName.requestFocus();
@@ -172,11 +192,12 @@ public class SellFragment extends Fragment {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                            uri.toString(), mEditTextFilePrice.getText().toString().trim());
+                                            uri.toString(), mEditTextFilePrice.getText().toString().trim(), mDescription.getText().toString().trim());
                                     String uploadId = mDatabaseRef.push().getKey();
                                     mDatabaseRef.child(uploadId).setValue(upload);
                                     mEditTextFileName.setText("");
                                     mEditTextFilePrice.setText("");
+                                    mDescription.setText("");
 
                                 }
                             })
