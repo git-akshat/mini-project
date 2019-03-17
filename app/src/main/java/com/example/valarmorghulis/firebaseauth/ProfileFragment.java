@@ -25,6 +25,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -43,6 +47,7 @@ public class ProfileFragment extends Fragment {
     ProgressBar progressBar;
     String profileimageUrl;
     FirebaseAuth mAuth;
+    private DatabaseReference mDatabaseRef;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,8 +60,9 @@ public class ProfileFragment extends Fragment {
         progressBar = v.findViewById(R.id.progressbar);
         textView = v.findViewById(R.id.textViewVerified);
         textViewEmail = v.findViewById(R.id.text_view_email);
-
         textViewEmail.setText(mAuth.getCurrentUser().getEmail());
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("user");
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +85,7 @@ public class ProfileFragment extends Fragment {
     public void onStart() {
         super.onStart();
         Bundle bundle = getArguments();
-        if (bundle !=null && bundle.getInt("seller")==1) {
+        if (bundle != null && bundle.getInt("seller") == 1) {
             Toast.makeText(getActivity(), "Complete your profile first", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -137,14 +143,30 @@ public class ProfileFragment extends Fragment {
             editText.requestFocus();
             return;
         }
-        if(profileimageUrl == null && imageView.getDrawable()==null)
-        {
+        if (profileimageUrl == null && imageView.getDrawable() == null) {
             Toast.makeText(getActivity(), "No image selected. Click on camera to select profile image", Toast.LENGTH_SHORT).show();
             return;
         }
 
         FirebaseUser user = mAuth.getCurrentUser();
         profileimageUrl = user.getPhotoUrl().toString();
+
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (task.isSuccessful()) {
+                            String token = task.getResult().getToken();
+                            User currentUser = new User(token.trim());
+                            String uId = mAuth.getCurrentUser().getUid();
+                            mDatabaseRef.child(uId).setValue(currentUser);
+                        } else {
+                            Toast.makeText(getActivity(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
+
 
         if (user != null && profileimageUrl != null) {
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
@@ -158,8 +180,7 @@ public class ProfileFragment extends Fragment {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getActivity(), "Profile updated successfully", Toast.LENGTH_LONG).show();
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(getActivity(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
                                 return;
                             }
@@ -170,6 +191,7 @@ public class ProfileFragment extends Fragment {
             Toast.makeText(getActivity(), "Some error occured", Toast.LENGTH_LONG).show();
             return;
         }
+
     }
 
     @Override

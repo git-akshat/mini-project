@@ -83,6 +83,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                     bundle.putString("userName",current.getUserName());
                     bundle.putString("date", current.getDate());
                     bundle.putString("desc", current.getDesc());
+                    bundle.putString("email",current.getEmail());
                     buyFragment.setArguments(bundle);
 
 
@@ -90,6 +91,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                             .getSupportFragmentManager()
                             .beginTransaction().replace(R.id.frag_container, buyFragment)
                             .addToBackStack(null).commit();
+
 
 
                 }

@@ -31,10 +31,9 @@ public class Upload {
         mDesc = desc;
         mUser = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
         mPrice = price;
+        mDate = getDate();
 
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-        Date date = new Date();
-        mDate = df.format(date);
+
     }
 
     public String getName() {
@@ -57,21 +56,25 @@ public class Upload {
     public String getUserName() { return mUser; }
     public void setUserName(String userName) { mUser = userName; }
 
-    public String getDate() { return mDate; }
-    public void setDate(String date) { mDate = date; }
-
     public String getDesc() { return mDesc; }
     public void setDesc(String desc) { mDesc = desc; }
 
     public String getPrice() {return mPrice;}
     public void setPrice(String price) { mPrice = price;}
+
     @Exclude
     public String getKey() {
         return mKey;
     }
-
     @Exclude
     public void setKey(String key) {
         mKey = key;
     }
+
+    public String getDate(){
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        Date date = new Date();
+        return df.format(date);
+    }
+    public void setDate(String date) { mDate = date; }
 }

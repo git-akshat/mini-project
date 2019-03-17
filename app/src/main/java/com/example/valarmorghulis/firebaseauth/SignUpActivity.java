@@ -17,6 +17,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.regex.Pattern;
 
@@ -26,6 +28,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     EditText editTextEmail;
     TextInputEditText editTextPassword;
     private FirebaseAuth mAuth;
+
+
 
 
     @Override
@@ -38,6 +42,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         progressBar = findViewById(R.id.progressbar);
 
         mAuth = FirebaseAuth.getInstance();
+
 
         findViewById(R.id.buttonSignUp).setOnClickListener(this);
         findViewById(R.id.textViewLogin).setOnClickListener(this);

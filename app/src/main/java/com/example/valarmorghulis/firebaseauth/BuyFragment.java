@@ -22,6 +22,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUserMetadata;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -33,7 +36,7 @@ public class BuyFragment extends Fragment {
     ImageView pImage;
     private TextView name;
     private TextView price;
-    private  TextView seller;
+    private TextView seller;
     private TextView sellDate;
     private TextView Desc_tag;
     private TextView Desc_text;
@@ -43,6 +46,8 @@ public class BuyFragment extends Fragment {
     int imagePosition;
     String stringImageUri;
     FirebaseAuth mAuth;
+    DatabaseReference userDatabase;
+    private List<User> mUser;
 
     @Nullable
     @Override
@@ -56,10 +61,11 @@ public class BuyFragment extends Fragment {
         button_message = (Button) v.findViewById(R.id.msg_button);
         pImage = (ImageView) v.findViewById(R.id.product_image);
         Desc_tag = (TextView) v.findViewById(R.id.Description_tag);
-        Desc_text =(TextView) v.findViewById(R.id.Description);
+        Desc_text = (TextView) v.findViewById(R.id.Description);
+
 
         Bundle bundle = getArguments();
-        if(bundle != null) {
+        if (bundle != null) {
             int position = bundle.getInt("position");
             String pName = bundle.getString("name");
             String pImageUrl = bundle.getString("imageUrl");
@@ -68,29 +74,42 @@ public class BuyFragment extends Fragment {
             String userName = bundle.getString("userName");
             String date = bundle.getString("date");
             String desc = bundle.getString("desc");
+            String email = bundle.getString("email");
             name.setText(pName);
             price.setText("₹ " + pPrice);
             seller.setText(userName);
             sellDate.setText(date);
-            if(desc != null){
+            if (desc != null) {
                 Desc_tag.setVisibility(View.VISIBLE);
                 Desc_text.setVisibility(View.VISIBLE);
                 Desc_text.setText(desc);
             }
 
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference current = ref.child("fir-auth-431b5").child("user").child("token");
+            //User currentUser = mUser.get(email);
+
             //pImage.setImageURI(Uri.parse(pImageUrl));
-            if(bitmapImage != null)
-                pImage.setImageBitmap(bitmapImage);
-            else {
-                String photoUrl = pImageUrl.toString();
-                Glide.with(this)
-                        .load(photoUrl)
-                        .into(pImage);
-            }
+//            if(bitmapImage != null)
+//                pImage.setImageBitmap(bitmapImage);
+//            else {
+            String photoUrl = pImageUrl.toString();
+            Glide.with(this)
+                    .load(photoUrl)
+                    .into(pImage);
         }
+        //}
 
 
-            return v;
+        button_message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MsgActivity.class));
+                getActivity().finish();
+            }
+        });
+
+        return v;
 
     }
 }
