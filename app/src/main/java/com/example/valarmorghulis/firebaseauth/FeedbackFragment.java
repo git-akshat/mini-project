@@ -52,7 +52,7 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener {
         }
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Feedback");
-        builder.setMessage("Thank you for your valuable feedback.");
+        builder.setMessage("Your feedback is very valuable to us.");
 
         builder.setPositiveButton("Send", new DialogInterface.OnClickListener() {
             @Override

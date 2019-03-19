@@ -226,7 +226,7 @@ public class BuyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Are you sure about this?");
+                builder.setTitle("Alert!");
                 builder.setMessage("Deletion is permanent. Are you sure you want to delete?");
 
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -271,24 +271,24 @@ public class BuyFragment extends Fragment {
         String email = sEmail;
         String subject = "[Juggler] Request for product " + pName;
 
-        String msg = "user-unknown";
+        String msg = "unknown-user";
         if (bName != "")
             msg = bName;
-        String thankMsg = "\nThank you for using Juggler :)";
-        String autoMsg = "\nThis is an auto generated email. Please do not reply to this email.";
+        String thankMsg = "\n\nThank you for using Juggler :)";
+        String autoMsg = "\n\nThis is an auto generated email. Please do not reply to this email.";
 
-        String message = msg + " is requesting for your product \"" + pName + "\". Wait for further response of the buyer. If you want you can write to buyer on email id \"" + bEmail + "\" ." + thankMsg + autoMsg;
+        String message = "Hey " + sName + ". " + msg + " is requesting for your product \"" + pName + "\". Wait for further response from the " + msg + ". If you want you can write to " + msg + " on email id " + bEmail + " ." + thankMsg + autoMsg;
         SendMail sm2s = new SendMail(getActivity(), email, subject, message);
         sm2s.execute();
     }
 
     private void sendEmailToBuyer() {
         String email = bEmail;
-        String subject = "[Juggler] Request for product " + pName;
-        String thankMsg = "\nThank you for shopping with us :)";
-        String autoMsg = "\nThis is an auto generated email. Please do not reply to this email.";
+        String subject = "[Juggler] Request Successful for " + pName;
+        String thankMsg = "\n\nThank you for using Juggler :)";
+        String autoMsg = "\n\nThis is an auto generated email. Please do not reply to this email.";
 
-        String message = "Hello " + bName + ". You have requested " + sName  +" for the product \"" + pName + "\". You can now send message to seller by clicking on message button." + thankMsg + autoMsg ;
+        String message = "Hello " + bName + ". You have requested " + sName  +" for \"" + pName + "\". You can send message to " + sName + " in the app by clicking on message button." + thankMsg + autoMsg ;
         SendMail sm2b = new SendMail(getActivity(), email, subject, message);
         sm2b.execute();
     }
