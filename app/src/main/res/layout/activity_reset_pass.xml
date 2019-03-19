@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".ResetPassActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -66,46 +66,33 @@
                 android:textColorHint="@color/colorAccent2"
                 app:passwordToggleEnabled="true">
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editTextPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/password"
-                    android:inputType="textPassword"
-                    android:paddingBottom="15dp" />
+
 
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/buttonLogin"
+                android:id="@+id/buttonReset"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="7dp"
                 android:background="@drawable/rounded_button_transparent"
                 android:elevation="4dp"
-                android:text="@string/login"
+                android:text="@string/reset_pass"
                 android:textAllCaps="false"
                 android:textColor="@color/colorAccent2" />
 
-            <TextView
-                android:id="@+id/textView_forgotPass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="@string/forgot_pass"
-                android:textAlignment="center"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/red" />
 
-            <TextView
-                android:id="@+id/textViewSignup"
+            <Button
+                android:id="@+id/textViewBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:text="@string/don_t_have_account_sign_up"
-                android:textAlignment="center"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:layout_gravity="center"
+                android:layout_margin="7dp"
+                android:background="@drawable/rounded_button_transparent"
+                android:elevation="4dp"
+                android:text="@string/go_back"
+                android:textAllCaps="false"
                 android:textColor="@color/colorAccent2" />
 
 

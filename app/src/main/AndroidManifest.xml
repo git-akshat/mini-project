@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ResetPassActivity"></activity>
         <activity android:name=".Activity_splash_screen" />
         <activity android:name=".DrawerActivity" />
         <activity android:name=".LoginActivity">

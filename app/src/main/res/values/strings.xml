@@ -20,4 +20,7 @@
     <string name="intro">A platform for students to buy and sell old goods.</string>
     <string name="our_team">Our Team</string>
     <string name="akshat">Akshat Agarwal</string>
+    <string name="forgot_pass">Forgot password? Reset</string>
+    <string name="go_back">Go Back</string>
+    <string name="reset_pass">Reset Password</string>
 </resources>
