@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,20 +7,73 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingLeft="80dp"
-        android:paddingRight="80dp">
+        android:layout_height="match_parent">
 
 
         <TextView
+            android:id="@+id/first_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Welcome_to_Juggler"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="20dp"
+            android:textColor="#2196FA"/>
+
+        <TextView
+            android:id="@+id/second_text"
+            android:layout_below="@+id/first_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/intro"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+
+
+        <TextView
+            android:id="@+id/third_text"
+            android:layout_below="@+id/second_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/coming_soon"
+            android:text="@string/our_team"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:textSize="20dp"
-            android:paddingLeft="55dp"
-            android:paddingRight="55dp"
-            android:textColorHint="@android:color/holo_blue_dark" />
+            android:textColor="#2196FA"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/third_text">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+
+        <TextView
+            android:id="@+id/akshat_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/akshat"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#000"/>
+
+            <ImageView
+                android:id="@+id/image_akshat"
+                android:layout_marginEnd="10dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
     </RelativeLayout>
 
-</LinearLayout>
+</ScrollView>

@@ -109,9 +109,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/edit_text_file_price"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:text="Description (optional) "
             android:textSize="25dp"
             android:textStyle="bold" />
@@ -121,9 +120,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/Description_tag"
-            android:layout_marginStart="10dp"
-            android:hint="short description"
-            android:maxLines="4" />
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
+            android:hint="Short Description"
+            android:lines="2"
+            android:maxLength="400" />
 
         <ProgressBar
             android:id="@+id/progress_bar"

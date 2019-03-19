@@ -71,7 +71,8 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
             mm.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
             //Adding subject
             mm.setSubject(subject);
-            //Adding message mm.setText(message);
+            //Adding message
+            mm.setText(message);
             //Sending email
             Transport.send(mm);
         } catch (MessagingException e) {

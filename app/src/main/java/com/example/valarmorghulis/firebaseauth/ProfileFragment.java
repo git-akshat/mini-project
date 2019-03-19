@@ -47,7 +47,7 @@ public class ProfileFragment extends Fragment {
     ProgressBar progressBar;
     String profileimageUrl;
     FirebaseAuth mAuth;
-    private DatabaseReference mDatabaseRef;
+    //private DatabaseReference mDatabaseRef;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class ProfileFragment extends Fragment {
         textViewEmail = v.findViewById(R.id.text_view_email);
         textViewEmail.setText(mAuth.getCurrentUser().getEmail());
 
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("user");
+        //mDatabaseRef = FirebaseDatabase.getInstance().getReference("user");
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,15 +143,18 @@ public class ProfileFragment extends Fragment {
             editText.requestFocus();
             return;
         }
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        //profileimageUrl = user.getPhotoUrl().toString();
+
         if (profileimageUrl == null && imageView.getDrawable() == null) {
             Toast.makeText(getActivity(), "No image selected. Click on camera to select profile image", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        FirebaseUser user = mAuth.getCurrentUser();
-        profileimageUrl = user.getPhotoUrl().toString();
 
-        FirebaseInstanceId.getInstance().getInstanceId()
+
+        /*FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                     @Override
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
@@ -165,7 +168,7 @@ public class ProfileFragment extends Fragment {
 
                         }
                     }
-                });
+                });*/
 
 
         if (user != null && profileimageUrl != null) {

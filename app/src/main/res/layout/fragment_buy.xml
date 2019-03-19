@@ -177,6 +177,18 @@
         android:text="Buy" />
 
     <Button
+        android:id="@+id/delete_button"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:duplicateParentState="true"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Delete"
+        android:visibility="gone"/>
+
+    <Button
         android:id="@+id/msg_button"
         android:layout_width="220dp"
         android:layout_height="wrap_content"

@@ -37,9 +37,14 @@
                 android:icon="@drawable/ic_about"/>
 
             <item
+                android:id="@+id/nav_feedback"
+                android:title="@string/feedback"
+                android:icon="@drawable/ic_feedback"/>
+
+            <!--<item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_share"
-                android:title="@string/share" />
+                android:title="@string/share" />-->
         </menu>
 
     </item>

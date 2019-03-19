@@ -74,9 +74,10 @@ public class DrawerActivity extends AppCompatActivity implements NavigationView.
                 getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new AboutFragment()).addToBackStack(null).commit();
                 break;
 
-            case R.id.nav_share:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new AboutFragment()).addToBackStack(null).commit();
+            case R.id.nav_feedback:
+                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, new FeedbackFragment()).addToBackStack(null).commit();
                 break;
+
 
         }
         drawer.closeDrawer(GravityCompat.START);

@@ -3,6 +3,8 @@ package com.example.valarmorghulis.firebaseauth;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -16,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -29,6 +32,16 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     public ImageAdapter(Context context, List<Upload> uploads) {
         mContext = context;
         mUploads = uploads;
+        NetworkConnection networkConnection = new NetworkConnection();
+        if (networkConnection.isConnectedToInternet(mContext)
+                || networkConnection.isConnectedToMobileNetwork(mContext)
+                || networkConnection.isConnectedToWifi(mContext)) {
+
+        } else {
+            networkConnection.showNoInternetAvailableErrorDialog(mContext);
+            return;
+        }
+
     }
 
     @Override
@@ -70,6 +83,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     BuyFragment buyFragment = new BuyFragment();
                     Bundle bundle = new Bundle();
                     int position = getAdapterPosition();
@@ -77,13 +91,21 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                     String name = current.getName();
                     bundle.putInt("position", position);
                     bundle.putString("name", name);
-                    bundle.putString("price",current.getPrice());
-                    bundle.putParcelable("bitmapImage", ((BitmapDrawable)imageView.getDrawable()).getBitmap());
-                    bundle.putString("imageUrl",current.getImageUrl());
-                    bundle.putString("userName",current.getUserName());
+                    bundle.putString("price", current.getPrice());
+
+                    if (imageView != null )
+                        bundle.putString("imageUrl", current.getImageUrl());
+                    else
+                        bundle.putString("imageUrl", null);
+                    bundle.putString("userName", current.getUserName());
                     bundle.putString("date", current.getDate());
                     bundle.putString("desc", current.getDesc());
-                    bundle.putString("email",current.getEmail());
+                    bundle.putString("email", current.getEmail());
+                    bundle.putString("key",current.getKey());
+                    /*if (((BitmapDrawable) imageView.getDrawable()).getBitmap() != null)
+                        bundle.putParcelable("bitmapImage", ((BitmapDrawable) imageView.getDrawable()).getBitmap());
+                    else
+                        bundle.putParcelable("bitmapImage", null);*/
                     buyFragment.setArguments(bundle);
 
 
@@ -91,7 +113,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
                             .getSupportFragmentManager()
                             .beginTransaction().replace(R.id.frag_container, buyFragment)
                             .addToBackStack(null).commit();
-
 
 
                 }

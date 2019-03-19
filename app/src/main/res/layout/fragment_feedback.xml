@@ -4,13 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/msg_background">
+    android:background="@drawable/feedback">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Message"
+        android:text="Feedback"
         android:textSize="25dp"
         android:textAllCaps="true"
         android:layout_marginTop="20dp"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:lines="4"
         android:layout_marginLeft="10dp"
-        android:textColor="#1A3A1A"
+        android:textColor="#0B160B"
         android:hint="Type your message here"/>
 
     <Button
@@ -35,7 +35,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:text="Send"
-        android:background="#94909297"
+        android:background="#D764DDC6"
         android:elevation="8dp"
         android:textColor="#000000"/>
 </LinearLayout>

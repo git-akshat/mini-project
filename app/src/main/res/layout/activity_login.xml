@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:textColorHint="@color/colorAccent"
+                android:textColorHint="@color/colorAccent2"
                 android:focusable="true"
                 android:focusableInTouchMode="true">
 
@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:textColorHint="@color/colorAccent"
+                android:textColorHint="@color/colorAccent2"
                 app:passwordToggleEnabled="true">
 
                 <android.support.design.widget.TextInputEditText
@@ -86,7 +86,7 @@
                 android:elevation="4dp"
                 android:text="@string/login"
                 android:textAllCaps="false"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccent2" />
 
             <TextView
                 android:id="@+id/textViewSignup"
@@ -96,7 +96,7 @@
                 android:text="@string/don_t_have_account_sign_up"
                 android:textAlignment="center"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/colorAccent" />
+                android:textColor="@color/colorAccent2" />
 
 
         </LinearLayout>
