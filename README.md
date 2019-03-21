@@ -57,11 +57,3 @@ An interface(application) for user through which he/she can buy or sell books an
            
 ## Collaborators
 [`Akshat Agarwal`](https://github.com/git-akshat)
-
-
-[`Aishwarya Agarwal`](https://github.com/aishwarya-cclub)
-
-[`Archana Minajagi`](https://github.com/1si16cs020)
-
-[`Chinmayi P`](https://github.com/chinmayi031)
-
