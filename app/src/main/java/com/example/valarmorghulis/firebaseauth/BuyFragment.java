@@ -75,6 +75,15 @@ public class BuyFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        NetworkConnection networkConnection = new NetworkConnection();
+        if (networkConnection.isConnectedToInternet(getActivity())
+                || networkConnection.isConnectedToMobileNetwork(getActivity())
+                || networkConnection.isConnectedToWifi(getActivity())) {
+
+        } else {
+            networkConnection.showNoInternetAvailableErrorDialog(getActivity());
+            return;
+        }
         String testEmail = mAuth.getInstance().getCurrentUser().getEmail();
         if (testEmail.equals(sEmail)) {
             button_make_offer.setVisibility(View.GONE);
@@ -277,7 +286,7 @@ public class BuyFragment extends Fragment {
         String thankMsg = "\n\nThank you for using Juggler :)";
         String autoMsg = "\n\nThis is an auto generated email. Please do not reply to this email.";
 
-        String message = "Hey " + sName + ". " + msg + " is requesting for your product \"" + pName + "\". Wait for further response from the " + msg + ". If you want you can write to " + msg + " on email id " + bEmail + " ." + thankMsg + autoMsg;
+        String message = "Hey " + sName + ". " + msg + " is requesting for your product \"" + pName + "\". Wait for further response from " + msg + ". If you want you can write to " + msg + " on email id " + bEmail + " ." + thankMsg + autoMsg;
         SendMail sm2s = new SendMail(getActivity(), email, subject, message);
         sm2s.execute();
     }

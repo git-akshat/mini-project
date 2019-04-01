@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.provider.Settings;
+import android.support.v4.app.FragmentActivity;
 
 public class NetworkConnection {
 
@@ -44,7 +45,7 @@ public class NetworkConnection {
         new AlertDialog.Builder(context)
                 .setTitle(ERR_DIALOG_TITLE)
                 .setMessage(ERR_DIALOG_MSG)
-                .setIcon(R.drawable.ic_face)
+                .setIcon(R.drawable.ic_wifi)
                 .setPositiveButton(ERR_DIALOG_POSITIVE_BTN, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -57,6 +58,18 @@ public class NetworkConnection {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
+                        if (isConnectedToInternet(context)
+                                || isConnectedToMobileNetwork(context)
+                                || isConnectedToWifi(context)) {
+
+                        } else {
+                            showNoInternetAvailableErrorDialog(context);
+                            return;
+                        }
+                        /*((FragmentActivity) context)
+                                .getSupportFragmentManager()
+                                .beginTransaction().replace(R.id.frag_container,new HomeFragment())
+                                .commit();*/
                     }
                 })
                 .show();

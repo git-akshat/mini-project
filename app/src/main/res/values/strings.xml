@@ -17,9 +17,11 @@
     <string name="product_name">Product name</string>
     <string name="feedback">Feedback</string>
     <string name="Welcome_to_Juggler">Welcome to Juggler</string>
-    <string name="intro">A platform for students to buy and sell old goods.</string>
+    <string name="intro">A platform for students to buy and sell old goods to other students within their college.</string>
     <string name="our_team">Our Team</string>
-    <string name="akshat">Akshat Agarwal</string>
+    <string name="a">"Name    :    Archana          \nUSN       :    1SI16CS020 \nBranch  :    CSE \n"</string>
+    <string name="c">"Name    :    Chinmayi Prakash \nUSN       :    1SI16CS031 \nBranch  :    CSE"</string>
+    <string name="k">"Name    :    Akshat Agarwal   \nUSN       :    1SI16CS010 \nBranch  :    CSE"</string>
     <string name="forgot_pass">Forgot password? Reset</string>
     <string name="go_back">Go Back</string>
     <string name="reset_pass">Reset Password</string>

@@ -95,6 +95,20 @@ public class SellFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        NetworkConnection networkConnection = new NetworkConnection();
+        if (networkConnection.isConnectedToInternet(getActivity())
+                || networkConnection.isConnectedToMobileNetwork(getActivity())
+                || networkConnection.isConnectedToWifi(getActivity())) {
+
+        } else {
+            networkConnection.showNoInternetAvailableErrorDialog(getActivity());
+            return;
+        }
+    }
+
     private void openFileChooser() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -112,7 +126,7 @@ public class SellFragment extends Fragment {
             mImageUri = data.getData();
             //cropImage();
 
-            Picasso.with(getActivity()).load(mImageUri).into(mImageView);
+            Picasso.with(getActivity()).load(mImageUri).rotate(90).into(mImageView);
         }
     }
 

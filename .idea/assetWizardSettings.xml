@@ -175,7 +175,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_feedback_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Program%20Files/Android/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/device/ic_signal_wifi_off_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -185,8 +185,9 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="color" value="000101" />
                             <entry key="opacityPercent" value="76" />
-                            <entry key="outputName" value="ic_feedback" />
+                            <entry key="outputName" value="ic_wifi" />
                             <entry key="sourceFile" value="C:\Users\Valar Morghulis\Downloads\rupee.svg" />
                           </map>
                         </option>

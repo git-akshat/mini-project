@@ -67,13 +67,9 @@ public class SendMail extends AsyncTask<Void, Void, Void> {
             MimeMessage mm = new MimeMessage(session);
             //Setting sender address
             mm.setFrom(new InternetAddress(Config.EMAIL));
-            //Adding receiver
             mm.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
-            //Adding subject
             mm.setSubject(subject);
-            //Adding message
             mm.setText(message);
-            //Sending email
             Transport.send(mm);
         } catch (MessagingException e) {
             e.printStackTrace();

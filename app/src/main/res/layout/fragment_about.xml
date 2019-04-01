@@ -1,79 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".SellFragment">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-
-
-        <TextView
-            android:id="@+id/first_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Welcome_to_Juggler"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:textSize="20dp"
-            android:textColor="#2196FA"/>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
-            android:id="@+id/second_text"
-            android:layout_below="@+id/first_text"
+            android:id="@+id/purpose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:text="Purpose"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/purpose_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/purpose"
             android:text="@string/intro"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp" />
-
-
+            android:textSize="20dp"
+            android:textStyle="normal" />
 
         <TextView
-            android:id="@+id/third_text"
-            android:layout_below="@+id/second_text"
+            android:id="@+id/team"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/purpose_text"
+            android:layout_marginTop="30dp"
+            android:paddingLeft="5dp"
+            android:text="@string/our_team"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/archana_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/our_team"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:textSize="20dp"
-            android:textColor="#2196FA"/>
+            android:layout_below="@+id/team"
+            android:layout_marginTop="10dp"
+            android:text="@string/a"
+            android:textSize="20dp" />
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/third_text">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-
+        <ImageView
+            android:id="@+id/archana_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/team"
+            android:layout_marginStart="45dp"
+            android:layout_toEndOf="@+id/archana_text"
+            android:background="@drawable/p1" />
 
         <TextView
             android:id="@+id/akshat_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/akshat"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:textColor="#000"/>
+            android:layout_below="@+id/archana_text"
+            android:layout_marginTop="20dp"
+            android:text="@string/k"
+            android:textSize="20dp" />
 
-            <ImageView
-                android:id="@+id/image_akshat"
-                android:layout_marginEnd="10dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp" />
+        <ImageView
+            android:id="@+id/akshat_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/archana_image"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/archana_text"
+            android:background="@drawable/p2" />
 
-            </LinearLayout>
+        <TextView
+            android:id="@+id/chinmayi_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/akshat_text"
+            android:layout_marginTop="40dp"
+            android:text="@string/c"
+            android:textSize="20dp" />
 
-        </android.support.v7.widget.CardView>
+        <ImageView
+            android:id="@+id/chinmayi_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/akshat_image"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/archana_text"
+            android:background="@drawable/p3" />
+
+
 
     </RelativeLayout>
-
 </ScrollView>

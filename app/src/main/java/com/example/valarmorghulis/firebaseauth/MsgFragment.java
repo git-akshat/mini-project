@@ -47,7 +47,8 @@ public class MsgFragment extends Fragment implements View.OnClickListener {
     private void sendEmail() {
         String email = sEmail;
         String subject = "[Juggler] Querry regarding product " + pName;
-        String message = editTextMessage.getText().toString().trim();
+        String autoMsg = "\n\nThis is an auto generated email. Please do not reply to this email.";
+        String message = editTextMessage.getText().toString().trim() + "\n\nsent by: " + sName + "(" + sEmail + ")\n" + autoMsg;
         SendMail sm = new SendMail(getActivity(), email, subject, message);
         sm.execute();
     }

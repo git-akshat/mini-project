@@ -11,17 +11,24 @@
         android:roundIcon="@mipmap/ic_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ResetPassActivity"></activity>
-        <activity android:name=".Activity_splash_screen" />
-        <activity android:name=".DrawerActivity" />
-        <activity android:name=".LoginActivity">
+
+        <activity android:name=".ResetPassActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activity_splash_screen"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DrawerActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
-        <activity android:name=".SignUpActivity" />
+        <activity android:name=".SignUpActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

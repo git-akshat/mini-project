@@ -84,6 +84,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+
         Bundle bundle = getArguments();
         if (bundle != null && bundle.getInt("seller") == 1) {
             Toast.makeText(getActivity(), "Complete your profile first", Toast.LENGTH_SHORT).show();
@@ -98,6 +99,15 @@ public class ProfileFragment extends Fragment {
     }
 
     private void loadUserInformation() {
+        NetworkConnection networkConnection = new NetworkConnection();
+        if (networkConnection.isConnectedToInternet(getActivity())
+                || networkConnection.isConnectedToMobileNetwork(getActivity())
+                || networkConnection.isConnectedToWifi(getActivity())) {
+
+        } else {
+            networkConnection.showNoInternetAvailableErrorDialog(getActivity());
+            return;
+        }
         final FirebaseUser user = mAuth.getCurrentUser();
 
         if (user != null) {
@@ -137,6 +147,15 @@ public class ProfileFragment extends Fragment {
 
 
     private void saveUserInformation() {
+        NetworkConnection networkConnection = new NetworkConnection();
+        if (networkConnection.isConnectedToInternet(getActivity())
+                || networkConnection.isConnectedToMobileNetwork(getActivity())
+                || networkConnection.isConnectedToWifi(getActivity())) {
+
+        } else {
+            networkConnection.showNoInternetAvailableErrorDialog(getActivity());
+            return;
+        }
         String displayName = editText.getText().toString();
         if (displayName.isEmpty()) {
             editText.setError("Name Required");
