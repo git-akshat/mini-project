@@ -42,30 +42,13 @@
             android:textSize="30dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/archana_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/team"
-            android:layout_marginTop="10dp"
-            android:text="@string/a"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/archana_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@+id/team"
-            android:layout_marginStart="45dp"
-            android:layout_toEndOf="@+id/archana_text"
-            android:background="@drawable/p1" />
 
         <TextView
             android:id="@+id/akshat_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/archana_text"
-            android:layout_marginTop="20dp"
+            android:layout_below="@+id/team"
+            android:layout_marginTop="10dp"
             android:text="@string/k"
             android:textSize="20dp" />
 
@@ -73,32 +56,9 @@
             android:id="@+id/akshat_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_below="@+id/archana_image"
+            android:layout_below="@+id/team"
             android:layout_marginStart="45dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@+id/archana_text"
+            android:layout_toEndOf="@+id/akshat_text"
             android:background="@drawable/p2" />
-
-        <TextView
-            android:id="@+id/chinmayi_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/akshat_text"
-            android:layout_marginTop="40dp"
-            android:text="@string/c"
-            android:textSize="20dp" />
-
-        <ImageView
-            android:id="@+id/chinmayi_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_below="@+id/akshat_image"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@+id/archana_text"
-            android:background="@drawable/p3" />
-
-
-
     </RelativeLayout>
 </ScrollView>

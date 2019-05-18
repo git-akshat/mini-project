@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        /*String upperCaseChars = "(.*[A-Z].*)";
+        String upperCaseChars = "(.*[A-Z].*)";
         if (!password.matches(upperCaseChars ))
         {
             //editTextPassword.setError("Password should contain atleast one upper case alphabet");
@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             editTextPassword.setError("Password should contain at least one number, one lowercase letter, one uppercase letter, and one special character.");
             editTextPassword.requestFocus();
             return;
-        }*/
+        }
 
         progressBar.setVisibility(View.VISIBLE);
 

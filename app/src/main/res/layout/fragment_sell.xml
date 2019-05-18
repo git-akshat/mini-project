@@ -74,7 +74,8 @@
             android:layout_height="300dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/button_choose_image"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:visibility="gone"/>
 
         <ImageButton
             android:id="@+id/rupee_button"
