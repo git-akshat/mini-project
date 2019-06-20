@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -68,7 +69,7 @@ public class HomeFragment extends Fragment {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class);
                     upload.setKey(postSnapshot.getKey());
-                    mUploads.add(upload);
+                        mUploads.add(upload);
                 }
 
                 mAdapter.notifyDataSetChanged();
