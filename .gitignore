@@ -10,4 +10,4 @@
 /captures
 .externalNativeBuild
 /app/google-services.json
-/app/src/main/java/com/example/valarmorghulis/firebaseauth/Config.java
+#/app/src/main/java/com/example/valarmorghulis/firebaseauth/Config.java
