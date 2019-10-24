@@ -54,6 +54,33 @@ An interface(application) for user through which he/she can buy or sell books an
 •	He can upload image of product, the price of product, category of product and a short description about the product.
 •	After a customer buys his product he will get an email notification.
 •	He can then chat with the customer in the application.
-           
+
+## Screenshots
+
+> 1. Login
+
+![login](https://github.com/git-akshat/mini-project/Screenshots/login.png)
+
+> 2. Signup
+
+![signup](https://github.com/git-akshat/mini-project/Screenshots/signup.png)
+
+> 3. Email verification
+
+![email_verification](https://github.com/git-akshat/mini-project/Screenshots/email_verification.png)
+
+> 4. Navigation Drawer
+
+![navigation](https://github.com/git-akshat/mini-project/Screenshots/Navigation_drawer.png)
+
+> 5. Home Page
+
+![Home]((https://github.com/git-akshat/mini-project/Screenshots/Home.png)
+
+> 6. Upload Product
+
+![upload]((https://github.com/git-akshat/mini-project/Screenshots/upload_product.png)
+
+
 ## Collaborators
 [`Akshat Agarwal`](https://github.com/git-akshat)
