@@ -59,27 +59,27 @@ An interface(application) for user through which he/she can buy or sell books an
 
 1. Login
 
-![picture alt](https://github.com/git-akshat/mini-project/tree/master/Screenshots/login.png)
+![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/login.png)
 
 2. Signup
 
-![picture alt](https://github.com/git-akshat/mini-project/tree/master/Screenshots/signup.png)
+![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/signup.png)
 
 3. Email verification
 
-![picture alt](https://github.com/git-akshat/mini-project/tree/master/Screenshots/email_verification.png)
+![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/email_verification.png)
 
 4. Navigation Drawer
 
-![picture alt](https://github.com/git-akshat/mini-project/tree/master/Screenshots/Navigation_drawer.png)
+![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Navigation_drawer.png)
 
 5. Home Page
 
-![picture alt](https://github.com/git-akshat/mini-project/tree/master/Screenshots/Home.png)
+![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Home.png)
 
 6. Upload Product
 
-![picture alt](https://github.com/git-akshat/mini-project/tree/master/Screenshots/upload_product.png)
+![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/upload_product.png)
 
 
 ## Collaborators
