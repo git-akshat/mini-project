@@ -82,5 +82,9 @@ An interface(application) for user through which he/she can buy or sell books an
 ![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/upload_product.png)
 
 
-## Collaborators
+## Demo
+Auto reply email and email notifications are disabled. To enable it go to Config.java file and provide email id and password.
+[Download apk](https://github.com/git-akshat/mini-project/releases/download/v16.6.19-alpha/Juggler-v16.6.19.apk)
+
+## Developed by
 [`Akshat Agarwal`](https://github.com/git-akshat)
