@@ -75,11 +75,23 @@ An interface(application) for user through which he/she can buy or sell books an
 
 5. Home Page
 
-![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Home.png)
+![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/home.png)
 
 6. Upload Product
 
 ![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/upload_product.png)
+
+7. Select Item
+
+![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/item.png)
+
+8. Send email message
+
+![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/message.png)
+
+9. Feedback
+
+![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Feedback.png)
 
 
 ## Demo
