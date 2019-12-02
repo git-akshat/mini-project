@@ -88,3 +88,6 @@ Auto reply email and email notifications are disabled. To enable it go to Config
 
 ## Developed by
 [`Akshat Agarwal`](https://github.com/git-akshat)
+
+## MIT License
+Copyright (c) 2019 Akshat Agarwal
