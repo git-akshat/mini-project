@@ -1,102 +1,65 @@
-
 # Juggler
 
+![Downloads](https://img.shields.io/github/downloads/git-akshat/mini-project/total?style=plastic)
+![code size](https://img.shields.io/github/languages/code-size/git-akshat/mini-project?style=plastic)
+[![](https://img.shields.io/badge/author-Akshat%20Agarwal-green.svg?style=plastic)](https://github.com/git-akshat)
+[![License](https://img.shields.io/github/license/git-akshat/mini-project?style=plastic&color=red)](https://github.com/git-akshat/mini-project/blob/master/LICENSE)
 
 
-## Introduction
 
-The objective of this project is to provide an android application exclusively for our college through which students can buy and sell old books, drafters, stationary, electronic goods and much more.
+Juggler is an android app for selling and buying of old goods within a college or in an organization.
 
-There are various application of this project like
-•	The students can easily find buyers for their books and other study related products.
-•	Students will get books at less price and hence they will save a lot of money.
-•	It will save time of students as they need not to go to market to buy things, as this app is for campus students they can easily share things among them.
 
-The future scope of this project is to make it accessible for multiple colleges in multi cities.
 
-## Motivation
-
-In our college library there is huge shortage of books. There are only 50% student who get books from library and others have to buy, so they spent a lot of money on books every year and those books won’t be much use to them next year which made us think of making an application through which we can sell our old books and also we can buy old books from seniors at less cost which will result in lot of money saving.
 
 ## Tools and Technology
-
-### Technology Used
-- Android
-- Database
-
-### Tools Used
-#### Frontend:  
-Android studio (Android Studio is the official integrated development environment for Google's Android operating system, built on JetBrains' IntelliJ IDEA software and designed specifically for Android development.)
-
-#### Backend:
-Firebase (Firebase is a mobile and web application development platform developed by Firebase, Inc. in 2011, then acquired by Google in 2014.)
-- Firebase Auth
-- Firebase Notification
-- Realtime database
-- Firebase storage
-
-
-## Expected Outcomes
-
-An interface(application) for user through which he/she can buy or sell books and other stationary at lower price.
-
-### For Buyer
-•	A login screen where user can login or signup to his account.
-•	A categories menu from where the user can select the category of the product he want.
-•	A grid view of the products (image and price).
-•	On clicking of the image of any product a screen will open from where he can buy directly or can add it to his cart.
-•	After buying product he will get an email confirmation.
-•	A chat box where he can chat to the seller of the product after purchasing the product.
-
-### For Seller
-
-•	After logging in, the user can select sell option in the navigation bar.
-•	He can upload image of product, the price of product, category of product and a short description about the product.
-•	After a customer buys his product he will get an email notification.
-•	He can then chat with the customer in the application.
+- Android Studio
+- Firebase
+- Java 8
 
 ## Screenshots
 
-1. Login
+#### 1. Login
 
-![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/login.png)
+![Login](https://github.com/git-akshat/mini-project/blob/master/Screenshots/login.png)
 
-2. Signup
+#### 2. Signup
 
-![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/signup.png)
+![Signup](https://github.com/git-akshat/mini-project/blob/master/Screenshots/signup.png)
 
-3. Email verification
+#### 3. Email verification
 
-![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/email_verification.png)
+![Email verification](https://github.com/git-akshat/mini-project/blob/master/Screenshots/email_verification.png)
 
-4. Navigation Drawer
+#### 4. Navigation Drawer
 
-![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Navigation_drawer.png)
+![Navigation Drawer](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Navigation_drawer.png)
 
-5. Upload Product
+#### 5. Upload Product
 
 ![upload](https://github.com/git-akshat/mini-project/blob/master/Screenshots/upload_product.png)
 
-6. Home Page
+#### 6. Home Page
 
 ![home](https://github.com/git-akshat/mini-project/blob/master/Screenshots/home.jpg)
 
-7. Select Item
+#### 7. Select Item
 
 ![item](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Item.jpg)
 
-8. Send email message
+#### 8. Send email message
 
-![picture alt](https://github.com/git-akshat/mini-project/blob/master/Screenshots/message.jpg)
+![Send email](https://github.com/git-akshat/mini-project/blob/master/Screenshots/message.jpg)
 
-9. Feedback
+#### 9. Feedback
 
 ![feedback](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Feedback.jpg)
 
 
 ## Demo
-Auto reply email and email notifications are disabled. To enable it go to Config.java file and provide email id and password.
 [Download apk](https://github.com/git-akshat/mini-project/releases/download/v16.6.19-alpha/Juggler-v16.6.19.apk)
+
+Auto-reply email and email-notifications are disabled. To enable it go to Config.java file and provide email id and password.
 
 ## Developed by
 [`Akshat Agarwal`](https://github.com/git-akshat)
