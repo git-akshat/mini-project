@@ -1,6 +1,5 @@
 # Juggler
 
-![Downloads](https://img.shields.io/github/downloads/git-akshat/mini-project/total?style=plastic)
 ![code size](https://img.shields.io/github/languages/code-size/git-akshat/mini-project?style=plastic)
 [![](https://img.shields.io/badge/author-Akshat%20Agarwal-green.svg?style=plastic)](https://github.com/git-akshat)
 [![License](https://img.shields.io/github/license/git-akshat/mini-project?style=plastic&color=red)](https://github.com/git-akshat/mini-project/blob/master/LICENSE)
