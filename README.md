@@ -16,6 +16,10 @@ Juggler is an android app for selling and buying of old goods within a college o
 - Firebase
 - Java 8
 
+## Build Config
+- Api 23: Android 6.0(marshmallow)
+- Gradle: 3.2.0
+
 ## Screenshots
 
 #### 1. Login
