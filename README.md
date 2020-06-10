@@ -24,39 +24,39 @@ Juggler is an android app for selling and buying of old goods within a college o
 
 #### 1. Login
 
-![Login](https://github.com/git-akshat/mini-project/blob/master/Screenshots/login.png)
+![Login](Screenshots/login.png)
 
 #### 2. Signup
 
-![Signup](https://github.com/git-akshat/mini-project/blob/master/Screenshots/signup.png)
+![Signup](Screenshots/signup.png)
 
 #### 3. Email verification
 
-![Email verification](https://github.com/git-akshat/mini-project/blob/master/Screenshots/email_verification.png)
+![Email verification](Screenshots/email_verification.png)
 
 #### 4. Navigation Drawer
 
-![Navigation Drawer](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Navigation_drawer.png)
+![Navigation Drawer](Screenshots/Navigation_drawer.png)
 
 #### 5. Upload Product
 
-![upload](https://github.com/git-akshat/mini-project/blob/master/Screenshots/upload_product.png)
+![upload](Screenshots/upload_product.png)
 
 #### 6. Home Page
 
-![home](https://github.com/git-akshat/mini-project/blob/master/Screenshots/home.jpg)
+![Home](Screenshots/home.jpg)
 
 #### 7. Select Item
 
-![item](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Item.jpg)
+![item](Screenshots/Item.jpg)
 
 #### 8. Send email message
 
-![Send email](https://github.com/git-akshat/mini-project/blob/master/Screenshots/message.jpg)
+![Send email](Screenshots/message.jpg)
 
 #### 9. Feedback
 
-![feedback](https://github.com/git-akshat/mini-project/blob/master/Screenshots/Feedback.jpg)
+![feedback](Screenshots/Feedback.jpg)
 
 
 ## Demo
