@@ -64,6 +64,8 @@ Juggler is an android app for selling and buying of old goods within a college o
 
 Auto-reply email and email-notifications are disabled. To enable it go to Config.java file and provide email id and password.
 
+Don't forget to provide these [permissions](https://github.com/git-akshat/mini-project/issues/1#issuecomment-612149057) in the firebase console.
+
 ## Developed by
 [`Akshat Agarwal`](https://github.com/git-akshat)
 
